@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+   name: ngnixserver
+spec:
+    replicas: 1
+    selector:
+          matchLabels:
+            app: server
+    template:    
+      metadata:
+           labels:
+             app: server
+      spec:
+          containers:
+              - name: ngnixserver
+                image: renatoserra/k8sstudies
+                ports: 
+                  - containerPort: 80
+
